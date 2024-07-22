@@ -1,55 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的作品集</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>黃翔的作品集展示區</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 20px 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .nav {
+            margin: 20px 0;
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .nav a {
+            color: #0073e6;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav a:hover {
+            background-color: #0073e6;
+            color: white;
+            border-radius: 5px;
+        }
+        .content {
+            display: none;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        .content.active {
+            display: block;
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #0073e6;
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>我的作品集</h1>
-        <nav>
-            <a href="#portfolio">作品集</a>
-            <a href="#about">關於我</a>
-            <a href="#contact">聯絡我</a>
-        </nav>
+        <h1>歡迎來到黃翔的作品集展示區</h1>
     </header>
-    <main>
-        <section id="portfolio">
-            <h2>簡報作品</h2>
-            <div class="presentation">
-                <h3>簡報標題 1</h3>
-                <iframe src="path_to_presentation_1" width="600" height="400"></iframe>
-                <p>簡報相關內容 1</p>
+    <div class="nav">
+        <a onclick="showContent('work1')">作品集1</a>
+        <a onclick="showContent('work2')">作品集2</a>
+        <a onclick="showContent('work3')">作品集3</a>
+        <a onclick="showContent('work4')">作品集4</a>
+        <a onclick="showContent('work5')">作品集5</a>
+        <a onclick="showContent('work6')">作品集6</a>
+        <a onclick="showContent('work7')">作品集7</a>
+        <a onclick="showContent('work8')">作品集8</a>
+        <a onclick="showContent('work9')">作品集9</a>
+        <a onclick="showContent('work10')">作品集10</a>
+    </div>
+
+    <div id="work1" class="content">
+        <h2>作品集1</h2>
+        <div class="carousel">
+            <img src="path/to/image1-1.jpg" class="active" alt="作品集1圖片1">
+            <img src="path/to/image1-2.jpg" alt="作品集1圖片2">
+            <img src="path/to/image1-3.jpg" alt="作品集1圖片3">
+            <img src="path/to/image1-4.jpg" alt="作品集1圖片4">
+            <div class="carousel-controls">
+                <button onclick="prevSlide('work1')">&#10094;</button>
+                <button onclick="nextSlide('work1')">&#10095;</button>
             </div>
-            <div class="presentation">
-                <h3>簡報標題 2</h3>
-                <iframe src="path_to_presentation_2" width="600" height="400"></iframe>
-                <p>簡報相關內容 2</p>
+        </div>
+        <p>這裡是作品集1的內容，包含詳細介紹和圖片展示。</p>
+    </div>
+    <!-- Similar structure for work2 to work10 -->
+    <div id="work2" class="content">
+        <h2>作品集2</h2>
+        <div class="carousel">
+            <img src="path/to/image2-1.jpg" class="active" alt="作品集2圖片1">
+            <img src="path/to/image2-2.jpg" alt="作品集2圖片2">
+            <img src="path/to/image2-3.jpg" alt="作品集2圖片3">
+            <img src="path/to/image2-4.jpg" alt="作品集2圖片4">
+            <div class="carousel-controls">
+                <button onclick="prevSlide('work2')">&#10094;</button>
+                <button onclick="nextSlide('work2')">&#10095;</button>
             </div>
-            <!-- 添加更多簡報 -->
-        </section>
-        <section id="about">
-            <h2>關於我</h2>
-            <p>這裡是一些關於你的信息，展示你的背景和經歷。</p>
-        </section>
-        <section id="contact">
-            <h2>聯絡我</h2>
-            <form>
-                <label for="name">姓名：</label>
-                <input type="text" id="name" name="name">
-                <label for="email">電郵：</label>
-                <input type="email" id="email" name="email">
-                <label for="message">訊息：</label>
-                <textarea id="message" name="message"></textarea>
-                <button type="submit">發送</button>
-            </form>
-        </section>
-    </main>
+        </div>
+        <p>這裡是作品集2的內容，包含詳細介紹和圖片展示。</p>
+    </div>
+    <!-- Repeat similar structure for work3 to work10 -->
     <footer>
-        <p>&copy; 2024 我的名字</p>
+        <p>&copy; 2024 黃翔的作品集展示區. All rights reserved.</p>
     </footer>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script>
+        function showContent(id) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({
+                top: document.getElementById(id).offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+        function prevSlide(workId) {
+            const carousel = document.querySelector(`#${workId} .carousel`);
+            const images = carousel.querySelectorAll('img');
+            let activeIndex = Array.from(images).findIndex(image => image.classList.contains('active'));
+            images[activeIndex].classList.remove('active');
+            activeIndex = (activeIndex - 1 + images.length) % images.length;
+            images[activeIndex].classList.add('active');
+        }
+
+        function nextSlide(workId) {
+            const carousel = document.querySelector(`#${workId} .carousel`);
+            const images = carousel.querySelectorAll('img');
+            let activeIndex = Array.from(images).findIndex(image => image.classList.contains('active'));
+            images[activeIndex].classList.remove('active');
+            activeIndex = (activeIndex + 1) % images.length;
+            images[activeIndex].classList.add('active');
+        }
+    </script>
 </body>
 </html>
