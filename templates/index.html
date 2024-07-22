@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的作品集</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>我的作品集</h1>
+        <nav>
+            <a href="#portfolio">作品集</a>
+            <a href="#about">關於我</a>
+            <a href="#contact">聯絡我</a>
+        </nav>
+    </header>
+    <main>
+        <section id="portfolio">
+            <h2>簡報作品</h2>
+            <div class="presentation">
+                <h3>簡報標題 1</h3>
+                <iframe src="path_to_presentation_1" width="600" height="400"></iframe>
+                <p>簡報相關內容 1</p>
+            </div>
+            <div class="presentation">
+                <h3>簡報標題 2</h3>
+                <iframe src="path_to_presentation_2" width="600" height="400"></iframe>
+                <p>簡報相關內容 2</p>
+            </div>
+            <!-- 添加更多簡報 -->
+        </section>
+        <section id="about">
+            <h2>關於我</h2>
+            <p>這裡是一些關於你的信息，展示你的背景和經歷。</p>
+        </section>
+        <section id="contact">
+            <h2>聯絡我</h2>
+            <form>
+                <label for="name">姓名：</label>
+                <input type="text" id="name" name="name">
+                <label for="email">電郵：</label>
+                <input type="email" id="email" name="email">
+                <label for="message">訊息：</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">發送</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 我的名字</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
