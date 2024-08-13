@@ -1,5 +1,4 @@
-# Flask類用於創建Flask應用、render_template函數用於渲染HTML模板
-from flask import Flask, render_template 
+from flask import Flask, render_template # Flask類用於創建Flask應用、render_template函數用於渲染HTML模板
 
 app = Flask(__name__) # app 是創建的Flask應用實例，用這個對象來配置和運行Web應用
 '''
@@ -32,20 +31,26 @@ Flask使用Python的標準庫(如os)來解析當前模塊的路徑，確定應�
 '''
 
 @app.route('/') # 這是一個裝飾器，它告訴Flask，當用戶訪問網站的根URL ('/') 時，應該運行下面定義的函數。
-                # @: 表示這是一個裝飾器。
-                # app: 創建的Flask應用對象。
-                # route: 是Flask應用對象的route方法，它用來定義URL路由。
-                # '/': 是URL路徑，這裡表示網站的【根URL】。
+# @: 表示這是一個裝飾器。
+# app: 創建的Flask應用對象。
+# route: 是Flask應用對象的route方法，它用來定義URL路由。
+# '/': 是URL路徑，這裡表示網站的【根URL】。
 
 def home(): 
     return render_template('index.html') # 返回一個渲染後的index.html模板
-                                        # render_template 是 Flask 提供的一個函數，用於渲染模板。模板是包含靜態數據和動態數據併入的文件，通常用於生成 HTML 文件。
-                                        # Flask 預設會在 templates 料夾中查找模板文件
+    # render_template 是 Flask 提供的一個函數，用於渲染模板。模板是包含靜態數據和動態數據併入的文件，通常用於生成 HTML 文件。
+    # Flask 預設會在 templates 料夾中查找模板文件
 
-if __name__ == '__main__':     # 檢查是否直接運行該腳本 (而不是作為模塊被導入)
-    app.run(debug=True)         # 如果是，它會啟動Flask開發Web服務器。
-                                # debug=True參數告訴Flask啟動調試模式，這樣在代碼發生更改時，服務器會自動重啟，並顯示錯誤信息。
-                                # 自動重新加載: 當代碼發生變更時，Flask 服務器會自動重新加載。不需要手動重啟服務器來查看代碼變更的效果，這大大提高了開發效率。
+if __name__ == '__main__': # 檢查是否直接運行該腳本 (而不是作為模塊被導入)
+    app.run(debug=True) # 如果是，它會啟動Flask開發Web服務器。
+    # debug=True參數告訴Flask啟動調試模式，這樣在代碼發生更改時，服務器會自動重啟，並顯示錯誤信息。
+    # 自動重新加載: 當代碼發生變更時，Flask 服務器會自動重新加載。不需要手動重啟服務器來查看代碼變更的效果，這大大提高了開發效率。
+
+'''
+app.run()：這個方法會啟動Flask的內建開發伺服器。
+當它運行後，你的Flask應用就會在本地的某個端口上被託管，默認情況下是5000端口。
+'''
+
 
 '''
 根URLS:
